@@ -9,7 +9,7 @@
             InitializeComponent();
         }
 
-        private void OnCounterClicked(object sender, EventArgs e)
+        private async void OnCounterClicked(object sender, EventArgs e)
         {
             count++;
 
@@ -19,6 +19,14 @@
                 CounterBtn.Text = $"Clicked {count} times";
 
             SemanticScreenReader.Announce(CounterBtn.Text);
+
+            ProgressBar.Progress = 0;
+            await ProgressBar.ProgressTo(1, 250, Easing.Linear);
+        }
+
+        private void OnSubmit(object sender, EventArgs e)
+        {
+            SubmitButton.Text = InputeField.Text;
         }
     }
 

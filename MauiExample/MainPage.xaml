@@ -30,6 +30,18 @@
                 SemanticProperties.Hint="Counts the number of times you click"
                 Clicked="OnCounterClicked"
                 HorizontalOptions="Fill" />
+
+            <ProgressBar 
+                x:Name="ProgressBar"
+                ScaleY="3"/>
+
+            <Entry 
+                x:Name="InputeField"/>
+
+            <Button 
+                x:Name="SubmitButton"
+                Text="Submit"
+                Clicked="OnSubmit"/>
         </VerticalStackLayout>
     </ScrollView>
 
