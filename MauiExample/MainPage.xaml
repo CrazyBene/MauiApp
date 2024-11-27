@@ -42,6 +42,33 @@
                 x:Name="SubmitButton"
                 Text="Submit"
                 Clicked="OnSubmit"/>
+
+            <Label 
+                Text="Visible if condition is true"
+                IsVisible="{Binding IsConditionMet}"
+                HorizontalOptions="Center" />
+
+            <Button 
+                x:Name="BisibilityButton"
+                Text="Visibile"
+                Clicked="ChangeVisibility"/>
+
+            <StackLayout 
+                x:Name="ConditionalContainer" />
+
+
+            <CollectionView ItemsSource="{Binding Items}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Label 
+                            Text="{Binding}" 
+                            Style="{StaticResource SubHeadline}"
+                            HorizontalOptions="Start"/>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <VerticalStackLayout x:Name="LoopContainer"/>
         </VerticalStackLayout>
     </ScrollView>
 
