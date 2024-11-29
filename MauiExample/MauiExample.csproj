@@ -62,4 +62,22 @@
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.1" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <Compile Update="Components\Counter.xaml.cs">
+	    <DependentUpon>Counter.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Components\HelloBlank.xaml.cs">
+	    <DependentUpon>HelloBlank.xaml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="Components\Counter.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Components\HelloBlank.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	</ItemGroup>
+
 </Project>
