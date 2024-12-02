@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using MauiExample.Pages;
+using MauiExample.Services;
+using Microsoft.Extensions.Logging;
 
 namespace MauiExample
 {
@@ -15,8 +17,11 @@ namespace MauiExample
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
 
+            builder.Services.AddSingleton(new LoggingService(LoggingService.LogLevel.INFO));
+            builder.Services.AddTransient<SecondPage>();
+
 #if DEBUG
-    		builder.Logging.AddDebug();
+            builder.Logging.AddDebug();
 #endif
 
             return builder.Build();
