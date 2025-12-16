@@ -47,6 +47,36 @@
                 Text="Visibile"
                 Clicked="ChangeVisibility"/>
 
+            <Button
+                x:Name="AndroidOnlyButton"
+                Text="Android Only"
+                Clicked="OnAndroidOnlyClicked">
+                <Button.IsVisible>
+                    <OnPlatform x:TypeArguments="x:Boolean">
+                        <On Platform="Android">true</On>
+                        <On Platform="iOS,MacCatalyst,WinUI,Tizen">false</On>
+                    </OnPlatform>
+                </Button.IsVisible>
+            </Button>
+
+            <Button
+                x:Name="WindowsOnlyButton"
+                Text="Windows Only"
+                Clicked="OnWindowsOnlyClicked"/>
+
+            <Button
+                x:Name="PhoneOnlyButton"
+                Text="Phone Only"
+                Clicked="OnPhoneOnlyClicked">
+                <Button.IsVisible>
+                    <OnIdiom  x:TypeArguments="x:Boolean">
+                        <OnIdiom.Phone>true</OnIdiom.Phone>
+                        <OnIdiom.Tablet>false</OnIdiom.Tablet>
+                        <OnIdiom.Desktop>false</OnIdiom.Desktop>
+                    </OnIdiom>
+                </Button.IsVisible>
+            </Button>
+
             <StackLayout
                 x:Name="ConditionalContainer"/>
 

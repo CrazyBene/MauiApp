@@ -36,6 +36,8 @@ namespace MauiExample
 
                 LoopContainer.Children.Add(label);
             }
+
+            WindowsOnlyButton.IsVisible = DeviceInfo.Platform == DevicePlatform.WinUI;
         }
 
         private void OnSubmit(object sender, EventArgs e)
@@ -54,6 +56,21 @@ namespace MauiExample
             {
                 ConditionalContainer.Children.Remove(label);
             }
+        }
+
+        private async void OnAndroidOnlyClicked(object sender, EventArgs e)
+        {
+            await DisplayAlert("Platform", "This button appears only on Android.", "OK");
+        }
+
+        private async void OnWindowsOnlyClicked(object sender, EventArgs e)
+        {
+            await DisplayAlert("Platform", "This button appears only on Windows.", "OK");
+        }
+
+        private async void OnPhoneOnlyClicked(object sender, EventArgs e)
+        {
+            await DisplayAlert("Idiom", "This button appears only on Phone.", "OK");
         }
     }
 
